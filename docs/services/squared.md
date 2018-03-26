@@ -1,6 +1,6 @@
 # Square Service
 
-The Square Service is a Node.js interface to [Square Core](https://github.com/square/square) for querying information about the square block chain. It will manage starting and stopping `squared` or connect to several running `squared` processes. It uses a branch of a [branch of Square Core](https://github.com/bitpay/square/tree/0.12-bitcore) with additional indexes for querying information about addresses and blocks. Results are cached for performance and there are several additional API methods added for common queries.
+The Square Service is a Node.js interface to [Square Core](https://github.com/square/square) for querying information about the square block chain. It will manage starting and stopping `squared` or connect to several running `squared` processes. It uses a branch of a [branch of Square Core](https://github.com/bitpay/square/tree/0.12-squarecore) with additional indexes for querying information about addresses and blocks. Results are cached for performance and there are several additional API methods added for common queries.
 
 ## Configuration
 
@@ -10,8 +10,8 @@ The default configuration will include a "spawn" configuration in "squared". Thi
   "servicesConfig": {
     "squared": {
       "spawn": {
-        "datadir": "/home/bitcore/.square",
-        "exec": "/home/bitcore/square/src/squared"
+        "datadir": "/home/squarecore/.square",
+        "exec": "/home/squarecore/square/src/squared"
       }
     }
   }
@@ -118,11 +118,11 @@ node.services.squared.getRawBlock(blockHeight, function(err, blockBuffer) {
   if (err) {
     throw err;
   }
-  var block = bitcore.Block.fromBuffer(blockBuffer);
+  var block = squarecore.Block.fromBuffer(blockBuffer);
   console.log(block);
 };
 
-// get a bitcore object of the block (as above)
+// get a squarecore object of the block (as above)
 node.services.squared.getBlock(blockHash, function(err, block) {
   //...
 };
@@ -148,10 +148,10 @@ node.services.squared.getRawTransaction(txid, function(err, transactionBuffer) {
   if (err) {
     throw err;
   }
-  var transaction = bitcore.Transaction().fromBuffer(transactionBuffer);
+  var transaction = squarecore.Transaction().fromBuffer(transactionBuffer);
 });
 
-// get a bitcore object of the transaction (as above)
+// get a squarecore object of the transaction (as above)
 node.services.squared.getTransaction(txid, function(err, transaction) {
   //...
 });

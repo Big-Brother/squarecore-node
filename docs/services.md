@@ -20,7 +20,7 @@ Services correspond with a Node.js module as described in 'package.json', for ex
 ```json
 {
   "dependencies": {
-    "bitcore-lib": "^0.13.7",
+    "squarecore-lib": "^0.13.7",
     "squarecore-node": "^0.2.0",
     "insight-api": "^3.0.0"
   }
@@ -33,14 +33,14 @@ _Note:_ If you already have a squarecore-node database, and you want to query da
 If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.
 
 ```js
-//Require bitcore
-var bitcore = require('squarecore-node');
+//Require squarecore
+var squarecore = require('squarecore-node');
 
 //Services
-var Square = bitcore.services.Square;
-var Web = bitcore.services.Web;
+var Square = squarecore.services.Square;
+var Web = squarecore.services.Web;
 
-var myNode = new bitcore.Node({
+var myNode = new squarecore.Node({
   network: 'regtest'
   services: [
     {
@@ -49,7 +49,7 @@ var myNode = new bitcore.Node({
       config: {
         spawn: {
           datadir: '/home/<username>/.square',
-          exec: '/home/<username>/bitcore-node/bin/squared'
+          exec: '/home/<username>/squarecore-node/bin/squared'
         }
       }
     },
@@ -82,7 +82,7 @@ A new service can be created by inheriting from `Node.Service` and implementing 
 - `Service.prototype.getPublishEvents()` - Describes which events can be subscribed to for this service, useful to subscribe to events over the included web socket API.
 - `Service.prototype.setupRoutes()` - A service can extend HTTP routes on an express application by implementing this method.
 
-The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"bitcoreNode": "lib/squarecore-node.js"`.
+The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"squarecoreNode": "lib/squarecore-node.js"`.
 
 Please take a look at some of the existing services for implementation specifics.
 

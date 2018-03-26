@@ -6,13 +6,13 @@ var path = require('path');
 var index = require('..');
 var log = index.log;
 
-var p2p = require('bitcore-p2p-square');
+var p2p = require('squarecore-p2p');
 var Peer = p2p.Peer;
 var Messages = p2p.Messages;
 var chai = require('chai');
-var bitcore = require('squarecore-lib');
-var Transaction = bitcore.Transaction;
-var BN = bitcore.crypto.BN;
+var squarecore = require('squarecore-lib');
+var Transaction = squarecore.Transaction;
+var BN = squarecore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
 var squared;
@@ -29,9 +29,9 @@ var client;
 var messages;
 var peer;
 var coinbasePrivateKey;
-var privateKey = bitcore.PrivateKey();
-var destKey = bitcore.PrivateKey();
-var BufferUtil = bitcore.util.buffer;
+var privateKey = squarecore.PrivateKey();
+var destKey = squarecore.PrivateKey();
+var BufferUtil = squarecore.util.buffer;
 var blocks;
 
 describe('P2P Functionality', function() {
@@ -40,8 +40,8 @@ describe('P2P Functionality', function() {
     this.timeout(200000);
 
     // enable regtest
-    bitcore.Networks.enableRegtest();
-    var regtestNetwork = bitcore.Networks.get('regtest');
+    squarecore.Networks.enableRegtest();
+    var regtestNetwork = squarecore.Networks.get('regtest');
     var datadir = __dirname + '/data';
 
     rimraf(datadir + '/regtest', function(err) {
@@ -52,10 +52,10 @@ describe('P2P Functionality', function() {
       squared = require('../').services.Square({
         spawn: {
           datadir: datadir,
-          exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/squared')
+          exec: path.resolve(__dirname, process.env.HOME, './.squarecore/data/squared')
         },
         node: {
-          network: bitcore.Networks.testnet
+          network: squarecore.Networks.testnet
         }
       });
 
@@ -130,11 +130,11 @@ describe('P2P Functionality', function() {
                         throw err;
                       }
                       utxo.privateKeyWIF = privresponse.result;
-                      var tx = bitcore.Transaction();
+                      var tx = squarecore.Transaction();
                       tx.from(utxo);
                       tx.change(privateKey.toAddress());
                       tx.to(destKey.toAddress(), utxo.amount * 1e8 - 1000);
-                      tx.sign(bitcore.PrivateKey.fromWIF(utxo.privateKeyWIF));
+                      tx.sign(squarecore.PrivateKey.fromWIF(utxo.privateKeyWIF));
                       txs.push(tx);
                       finished();
                     });

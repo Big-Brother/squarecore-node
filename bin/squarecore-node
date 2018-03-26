@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-var bitcore = require('../lib/cli/bitcore');
-bitcore();
+var squarecore = require('../lib/cli/squarecore');
+squarecore();

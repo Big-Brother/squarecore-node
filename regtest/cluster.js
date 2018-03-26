@@ -6,7 +6,7 @@ var spawn = require('child_process').spawn;
 
 var SquareRPC = require('square-rpc');
 var rimraf = require('rimraf');
-var bitcore = require('squarecore-lib');
+var squarecore = require('squarecore-lib');
 var chai = require('chai');
 var should = chai.should();
 
@@ -19,7 +19,7 @@ var SquareService = index.services.Square;
 describe('Square Cluster', function() {
   var node;
   var daemons = [];
-  var execPath = path.resolve(__dirname, process.env.HOME, './.bitcore/data/squared')
+  var execPath = path.resolve(__dirname, process.env.HOME, './.squarecore/data/squared')
   var nodesConf = [
     {
       datadir: path.resolve(__dirname, './data/node1'),
@@ -133,7 +133,7 @@ describe('Square Cluster', function() {
       ]
     };
 
-    var regtest = bitcore.Networks.get('regtest');
+    var regtest = squarecore.Networks.get('regtest');
     should.exist(regtest);
 
     node = new BitcoreNode(configuration);

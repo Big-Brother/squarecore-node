@@ -6,7 +6,7 @@ var sinon = require('sinon');
 var proxyquire = require('proxyquire');
 
 describe('#defaultConfig', function() {
-  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.bitcore/data/squared');
+  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.squarecore/data/squared');
 
   it('will return expected configuration', function() {
     var config = JSON.stringify({
@@ -19,7 +19,7 @@ describe('#defaultConfig', function() {
       servicesConfig: {
         squared: {
           spawn: {
-            datadir: process.env.HOME + '/.bitcore/data',
+            datadir: process.env.HOME + '/.squarecore/data',
             exec: expectedExecPath
           }
         }
@@ -29,7 +29,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/squarecore-node.json');
+          path.should.equal(process.env.HOME + '/.squarecore/squarecore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -42,13 +42,13 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig();
-    info.path.should.equal(home + '/.bitcore');
+    info.path.should.equal(home + '/.squarecore');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal(['squared', 'web']);
     var squared = info.config.servicesConfig.squared;
     should.exist(squared);
-    squared.spawn.datadir.should.equal(home + '/.bitcore/data');
+    squared.spawn.datadir.should.equal(home + '/.squarecore/data');
     squared.spawn.exec.should.equal(expectedExecPath);
   });
   it('will include additional services', function() {
@@ -64,7 +64,7 @@ describe('#defaultConfig', function() {
       servicesConfig: {
         squared: {
           spawn: {
-            datadir: process.env.HOME + '/.bitcore/data',
+            datadir: process.env.HOME + '/.squarecore/data',
             exec: expectedExecPath
           }
         }
@@ -74,7 +74,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/squarecore-node.json');
+          path.should.equal(process.env.HOME + '/.squarecore/squarecore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -89,7 +89,7 @@ describe('#defaultConfig', function() {
     var info = defaultConfig({
       additionalServices: ['insight-api', 'insight-ui']
     });
-    info.path.should.equal(home + '/.bitcore');
+    info.path.should.equal(home + '/.squarecore');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal([
@@ -100,7 +100,7 @@ describe('#defaultConfig', function() {
     ]);
     var squared = info.config.servicesConfig.squared;
     should.exist(squared);
-    squared.spawn.datadir.should.equal(home + '/.bitcore/data');
+    squared.spawn.datadir.should.equal(home + '/.squarecore/data');
     squared.spawn.exec.should.equal(expectedExecPath);
   });
 });

@@ -2,8 +2,8 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var bitcore = require('squarecore-lib');
-var Networks = bitcore.Networks;
+var squarecore = require('squarecore-lib');
+var Networks = squarecore.Networks;
 var proxyquire = require('proxyquire');
 var util = require('util');
 var BaseService = require('../lib/service');
@@ -425,7 +425,7 @@ describe('Bitcore Node', function() {
 
   describe('#getNetworkName', function() {
     afterEach(function() {
-      bitcore.Networks.disableRegtest();
+      squarecore.Networks.disableRegtest();
     });
     it('it will return the network name for livenet', function() {
       var node = new Node(baseConfig);

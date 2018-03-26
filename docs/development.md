@@ -15,7 +15,7 @@ To develop squarecore-node:
 ```bash
 cd ~
 git clone git@github.com:<yourusername>/squarecore-node.git
-git clone git@github.com:<yourusername>/bitcore-lib.git
+git clone git@github.com:<yourusername>/squarecore-lib.git
 ```
 
 To develop square or to compile from source:
@@ -46,7 +46,7 @@ brew install zeromq
 ## Install and Symlink
 
 ```bash
-cd bitcore-lib
+cd squarecore-lib
 npm install
 cd ../squarecore-node
 npm install
@@ -57,8 +57,8 @@ npm install
 We now will setup symlinks in `squarecore-node` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
-rm -rf bitcore-lib
-ln -s ~/bitcore-lib
+rm -rf squarecore-lib
+ln -s ~/squarecore-lib
 rm -rf square-rpc
 ln -s ~/square-rpc
 ```
@@ -135,10 +135,10 @@ Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
-ln -s ~/bitcore-lib
+ln -s ~/squarecore-lib
 ln -s ~/squarecore-node
-ln -s ~/insight-api
-ln -s ~/insight-ui
+ln -s ~/insight-api-square
+ln -s ~/insight-ui-square
 ```
 
 Make sure that the `<datadir>/square.conf` has the necessary settings, for example:

@@ -21,7 +21,7 @@ module.exports.scaffold.defaultConfig = require('./lib/scaffold/default-config')
 module.exports.cli = {};
 module.exports.cli.main = require('./lib/cli/main');
 module.exports.cli.daemon = require('./lib/cli/daemon');
-module.exports.cli.bitcore = require('./lib/cli/bitcore');
-module.exports.cli.bitcored = require('./lib/cli/bitcored');
+module.exports.cli.squarecore = require('./lib/cli/squarecore');
+module.exports.cli.squarecored = require('./lib/cli/squarecored');
 
 module.exports.lib = require('squarecore-lib');

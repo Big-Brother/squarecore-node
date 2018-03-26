@@ -41,7 +41,7 @@ There are several add-on services available to extend the functionality of Bitco
 
 - [Insight API](https://github.com/squarepay/insight-api-square/tree/master)
 - [Insight UI](https://github.com/squarepay/insight-ui-square/tree/master)
-- [Bitcore Wallet Service](https://github.com/squarepay/bitcore-wallet-service/tree/master)
+- [Bitcore Wallet Service](https://github.com/squarepay/squarecore-wallet-service/tree/master)
 
 ## Documentation
 
@@ -56,7 +56,7 @@ There are several add-on services available to extend the functionality of Bitco
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/squarecore/blob/master/CONTRIBUTING.md) file.
 
 ## License
 

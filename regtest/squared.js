@@ -7,8 +7,8 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var bitcore = require('squarecore-lib');
-var BN = bitcore.crypto.BN;
+var squarecore = require('squarecore-lib');
+var BN = squarecore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
 var squared;
@@ -23,8 +23,8 @@ var blockHashes = [];
 var utxos;
 var client;
 var coinbasePrivateKey;
-var privateKey = bitcore.PrivateKey();
-var destKey = bitcore.PrivateKey();
+var privateKey = squarecore.PrivateKey();
+var destKey = squarecore.PrivateKey();
 
 describe('Squared Functionality', function() {
 
@@ -32,8 +32,8 @@ describe('Squared Functionality', function() {
     this.timeout(200000);
 
     // Add the regtest network
-    bitcore.Networks.enableRegtest();
-    var regtestNetwork = bitcore.Networks.get('regtest');
+    squarecore.Networks.enableRegtest();
+    var regtestNetwork = squarecore.Networks.get('regtest');
 
     var datadir = __dirname + '/data';
 
@@ -46,7 +46,7 @@ describe('Squared Functionality', function() {
       squared = require('../').services.Square({
         spawn: {
           datadir: datadir,
-          exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/squared')
+          exec: path.resolve(__dirname, process.env.HOME, './.squarecore/data/squared')
         },
         node: {
           network: regtestNetwork,
@@ -212,7 +212,7 @@ describe('Squared Functionality', function() {
     [0,1,2,3,4,5,6,7,8,9].forEach(function(i) {
       it('for tx ' + i, function(done) {
         var txhex = transactionData[i];
-        var tx = new bitcore.Transaction();
+        var tx = new squarecore.Transaction();
         tx.fromString(txhex);
         squared.getTransaction(tx.hash, function(err, response) {
           if (err) {
@@ -237,7 +237,7 @@ describe('Squared Functionality', function() {
     [0,1,2,3,4,5,6,7,8,9].forEach(function(i) {
       it('for tx ' + i, function(done) {
         var txhex = transactionData[i];
-        var tx = new bitcore.Transaction();
+        var tx = new squarecore.Transaction();
         tx.fromString(txhex);
         squared.getRawTransaction(tx.hash, function(err, response) {
           if (err) {
@@ -328,11 +328,11 @@ describe('Squared Functionality', function() {
     it('will not error and return the transaction hash', function(done) {
 
       // create and sign the transaction
-      var tx = bitcore.Transaction();
+      var tx = squarecore.Transaction();
       tx.from(utxos[0]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[0].amount * 1e8 - 1000);
-      tx.sign(bitcore.PrivateKey.fromWIF(utxos[0].privateKeyWIF));
+      tx.sign(squarecore.PrivateKey.fromWIF(utxos[0].privateKeyWIF));
 
       // test sending the transaction
       squared.sendTransaction(tx.serialize(), function(err, hash) {
@@ -346,7 +346,7 @@ describe('Squared Functionality', function() {
     });
 
     it('will throw an error if an unsigned transaction is sent', function(done) {
-      var tx = bitcore.Transaction();
+      var tx = squarecore.Transaction();
       tx.from(utxos[1]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[1].amount * 1e8 - 1000);
@@ -374,11 +374,11 @@ describe('Squared Functionality', function() {
     });
 
     it('will emit "tx" events', function(done) {
-      var tx = bitcore.Transaction();
+      var tx = squarecore.Transaction();
       tx.from(utxos[2]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[2].amount * 1e8 - 1000);
-      tx.sign(bitcore.PrivateKey.fromWIF(utxos[2].privateKeyWIF));
+      tx.sign(squarecore.PrivateKey.fromWIF(utxos[2].privateKeyWIF));
 
       var serialized = tx.serialize();
 
