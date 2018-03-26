@@ -34,7 +34,7 @@ If, instead, you would like to run a custom node, you can include services by in
 
 ```js
 //Require squarecore
-var squarecore = require('squarecore-node');
+var squarecore = require('@big-brother/squarecore-node');
 
 //Services
 var Square = squarecore.services.Square;

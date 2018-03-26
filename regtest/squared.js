@@ -7,7 +7,7 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var squarecore = require('squarecore-lib');
+var squarecore = require('@big-brother/squarecore-lib');
 var BN = squarecore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');

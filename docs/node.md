@@ -14,7 +14,7 @@ A node represents a collection of services that are loaded together. For more in
 
 ```js
 
-var index = require('squarecore-node');
+var index = require('@big-brother/squarecore-node');
 var Square = index.services.Square;
 var Node = index.Node;
 

@@ -6,11 +6,11 @@ var path = require('path');
 var index = require('..');
 var log = index.log;
 
-var p2p = require('squarecore-p2p');
+var p2p = require('@big-brother/squarecore-p2p');
 var Peer = p2p.Peer;
 var Messages = p2p.Messages;
 var chai = require('chai');
-var squarecore = require('squarecore-lib');
+var squarecore = require('@big-brother/squarecore-lib');
 var Transaction = squarecore.Transaction;
 var BN = squarecore.crypto.BN;
 var async = require('async');

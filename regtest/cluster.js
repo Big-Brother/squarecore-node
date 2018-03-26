@@ -6,7 +6,7 @@ var spawn = require('child_process').spawn;
 
 var SquareRPC = require('square-rpc');
 var rimraf = require('rimraf');
-var squarecore = require('squarecore-lib');
+var squarecore = require('@big-brother/squarecore-lib');
 var chai = require('chai');
 var should = chai.should();
 

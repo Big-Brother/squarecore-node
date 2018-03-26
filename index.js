@@ -24,4 +24,4 @@ module.exports.cli.daemon = require('./lib/cli/daemon');
 module.exports.cli.squarecore = require('./lib/cli/squarecore');
 module.exports.cli.squarecored = require('./lib/cli/squarecored');
 
-module.exports.lib = require('squarecore-lib');
+module.exports.lib = require('@big-brother/squarecore-lib');

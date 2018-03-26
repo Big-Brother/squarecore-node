@@ -2,7 +2,7 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var squarecore = require('squarecore-lib');
+var squarecore = require('@big-brother/squarecore-lib');
 var Networks = squarecore.Networks;
 var proxyquire = require('proxyquire');
 var util = require('util');
