@@ -643,7 +643,7 @@ describe('Square Service', function() {
   });
 
   describe('#_wrapRPCError', function() {
-    it('will convert square-rpc error object into JavaScript error', function() {
+    it('will convert squared-rpc error object into JavaScript error', function() {
       var squared = new SquareService(baseConfig);
       var error = squared._wrapRPCError({message: 'Test error', code: -1});
       error.should.be.an.instanceof(errors.RPCError);

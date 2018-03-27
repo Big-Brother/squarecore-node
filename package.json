@@ -1,7 +1,7 @@
 {
   "name": "@big-brother/squarecore-node",
   "description": "Full node with extended capabilities using Bitcore and Square Core",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "main": "./index.js",
   "contributors": [
     {

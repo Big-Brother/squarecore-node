@@ -59,8 +59,8 @@ We now will setup symlinks in `squarecore-node` *(repeat this for any other modu
 cd node_modules
 rm -rf squarecore-lib
 ln -s ~/squarecore-lib
-rm -rf square-rpc
-ln -s ~/square-rpc
+rm -rf squared-rpc
+ln -s ~/squared-rpc
 ```
 
 And if you're compiling or developing square:

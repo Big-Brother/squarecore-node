@@ -15,7 +15,7 @@ var node;
 
 var should = chai.should();
 
-var SquareRPC = require('square-rpc');
+var SquareRPC = require('@big-brother/squared-rpc');
 var index = require('..');
 var Transaction = squarecore.Transaction;
 var BitcoreNode = index.Node;

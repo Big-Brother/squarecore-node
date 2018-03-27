@@ -4,7 +4,7 @@ var path = require('path');
 var async = require('async');
 var spawn = require('child_process').spawn;
 
-var SquareRPC = require('square-rpc');
+var SquareRPC = require('@big-brother/squared-rpc');
 var rimraf = require('rimraf');
 var squarecore = require('@big-brother/squarecore-lib');
 var chai = require('chai');

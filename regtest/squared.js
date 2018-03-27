@@ -17,7 +17,7 @@ var squared;
 var should = chai.should();
 var assert = chai.assert;
 var sinon = require('sinon');
-var SquareRPC = require('square-rpc');
+var SquareRPC = require('@big-brother/squared-rpc');
 var transactionData = [];
 var blockHashes = [];
 var utxos;
